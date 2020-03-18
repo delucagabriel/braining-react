@@ -6,13 +6,14 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import { NavLink } from 'react-router-dom'
+import ApiServices from '../../services/apiServices'
 
 function Materias () {
   const [materias, setMaterias] = useState([])
 
   useEffect(() => {
-    fetch('http://delucagabriel.com/api/v1/materias')
-      .then(response => response.json())
+    ApiServices.ListaMaterias()
       .then(data => {
         setMaterias(data)
       })
@@ -52,7 +53,12 @@ function Materias () {
       <List>
         {materias.map(materia => (
           <ListItem button key={materia.id}>
-            <ListItemText primary={materia.title} />
+            <NavLink activeStyle={{
+              color: 'red',
+              textDecoration: 'none'
+            }} to={`/materias/${materia.id.toString()}`}>
+              <ListItemText primary={materia.title} />
+            </NavLink>
           </ListItem>
         ))}
       </List>

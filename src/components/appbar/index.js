@@ -1,37 +1,19 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
 import Materias from '../materias'
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
-  title: {
-    flexGrow: 1
-  }
-}))
-
 export default function ButtonAppBar () {
-  const classes = useStyles()
-
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <Materias />
-          <Typography variant="h6" className={classes.title}>
-            Braining
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </div>
+    <>
+      <nav>
+        <div className="nav-wrapper red accent-4">
+
+          <span className="brand-logo"><i><Materias /></i>Braining App</span>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <li><a href="/sdvsfv">Login</a></li>
+            <li><a href="/sfgsdfg">Sobre</a></li>
+          </ul>
+        </div>
+      </nav>
+    </>
   )
 }
